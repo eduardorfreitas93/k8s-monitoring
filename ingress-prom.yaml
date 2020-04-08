@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-prom
+  namespace: monitoring
+spec:
+  rules:
+  - host: prom.192.168.64.3.xip.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: prometheus-server
+          servicePort: 80
