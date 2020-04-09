@@ -1,14 +1,14 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: ingress-prom
+  name: ingress-kube-state
   namespace: monitoring
 spec:
   rules:
-  - host: prom.192.168.64.3.xip.io
+  - host: kube.192.168.64.3.xip.io
     http:
       paths:
       - path: /
         backend:
-          serviceName: prometheus-operator-prometheus
-          servicePort: 9090
+          serviceName: kube-state-metrics
+          servicePort: 8080

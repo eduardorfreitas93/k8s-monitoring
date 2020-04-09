@@ -1,14 +1,13 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: ingress-grafana
-  namespace: monitoring
+  name: ingress-nginx
 spec:
   rules:
-  - host: grafana.192.168.64.3.xip.io
+  - host: app.192.168.64.3.xip.io
     http:
       paths:
       - path: /
         backend:
-          serviceName: prometheus-operator-grafana
+          serviceName: nginx
           servicePort: 80

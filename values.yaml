@@ -3,11 +3,13 @@
 # example adds prometheus-blackbox-exporter scrape config
 extraScrapeConfigs: |
   - job_name: 'netdata'
-    metrics_path: /api/v1/allmetrics
+    metrics_path: '/api/v1/allmetrics'
     params:
       format: [prometheus]
     honor_labels: true
     scrape_interval: 5s
     static_configs:
-      - targets: 
-        - 'http://192.168.64.3:19999'
+      - targets: ['192.168.64.3:19999']
+  - job_name: 'kube-state-metrics'
+    static_configs:
+      - targets: ['kube-state-metrics.kube-system.svc.cluster.local:8080']
